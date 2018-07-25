@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HelloSpring {
 
-    @RequestMapping("/index")
-    public String hello(){
+//    @RequestMapping("/index")
+//    public String hello(){
+//
+//        return "index";
+//    }
 
-        return "index";
-    }
+
 }
