@@ -16,7 +16,6 @@
 
     <div id="resp"> </div>
     <input type="button" onclick="req()" value="请求" />
-
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script >
         function req() {
