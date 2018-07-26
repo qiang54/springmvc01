@@ -58,6 +58,8 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<DemoObj> {
 
     }
 
+
+
     /**
      * 处理输出数据到respons
      * @param obj

@@ -1,14 +1,18 @@
 package com.spring.config;
 
 
+import com.spring.converter.MyMessageConverter;
 import com.spring.interceptor.DemoInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.*;
 
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,6 +34,11 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
+    @Bean
+    public MyMessageConverter myMessageConverter(){
+        return new MyMessageConverter();
+    }
+
 
     /**
      * 页面转向
@@ -38,6 +47,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/index").setViewName("/index");
+        registry.addViewController("/converter").setViewName("/converter");
     }
 
     /**
@@ -48,6 +58,12 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
         configurer.setUseSuffixPatternMatch(false);
+    }
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+        converters.add(new MyMessageConverter());
     }
 
     //    @Bean
