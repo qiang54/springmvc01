@@ -50,6 +50,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/converter").setViewName("/converter");
     }
 
+
     /**
      * http://localhost:8080/springmvc01/anno/pathVar/xx.yy
      * 路径中设置不忽略“.”后的值（springmvc默认忽略）
